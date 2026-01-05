@@ -48,5 +48,5 @@ This project is a Match Ticketing System designed to facilitate the scheduling o
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/match-ticketing-system.git](https://github.com/yourusername/match-ticketing-system.git)
+   git clone [https://github.com/Ziad-Khattab/Match-Ticketing-System.git](https://github.com/Ziad-Khattab/Match-Ticketing-System.git)
    cd match-ticketing-system
