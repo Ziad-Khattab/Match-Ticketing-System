@@ -32,7 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="../Match.cpp" />
+		<Unit filename="../Match.h" />
+		<Unit filename="../Ticket.cpp" />
+		<Unit filename="../Ticket.h" />
+		<Unit filename="../main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

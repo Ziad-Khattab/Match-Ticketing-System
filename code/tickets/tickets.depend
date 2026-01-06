@@ -1,16 +1,22 @@
 # depslib dependency file v1.0
-1767730332 source:c:\users\dell\onedrive\desktop\ahmed omar\code\ticket.cpp
+1767735805 source:c:\users\dell\onedrive\desktop\ahmed omar\code\ticket.cpp
 	"Ticket.h"
 
-1767730332 c:\users\dell\onedrive\desktop\ahmed omar\code\ticket.h
+1767735805 c:\users\dell\onedrive\desktop\ahmed omar\code\ticket.h
 	<string>
 
-1767734087 source:c:\users\dell\onedrive\desktop\ahmed omar\code\match.cpp
+1767735805 source:c:\users\dell\onedrive\desktop\ahmed omar\code\match.cpp
 	"Match.h"
 
-1767734087 c:\users\dell\onedrive\desktop\ahmed omar\code\match.h
+1767735805 c:\users\dell\onedrive\desktop\ahmed omar\code\match.h
 	<iostream>
 	<vector>
 	<string>
 	"Ticket.h"
+
+1767735805 source:c:\users\dell\onedrive\desktop\ahmed omar\code\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	"Match.h"
 
