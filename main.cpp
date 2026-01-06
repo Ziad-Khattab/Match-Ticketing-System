@@ -38,8 +38,8 @@ int main() {
                 cout << "Enter Your Name: ";
                 cin >> fanName;
 
-                for (auto &m : matches) {
-                    if (m.getMatchCode() != "" && id >= 1 && id <= matches.size()) {
+                for (int i = 0; i < matches.size(); i++) {
+                    if (matches[i].getMatchCode() != "" && id >= 1 && id <= matches.size()) {
                         found = true;
                         if (matches[id - 1].bookSeat(fanName))
                             cout << "Ticket Generated Successfully\n";
