@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     vector<Match> matches;
     int id;
-    string fanName; 
+    string fanName;
     bool found;
 
     // TESTING MATCHES
@@ -17,7 +17,8 @@ int main() {
     do {
         cout << "1. View Matches" << endl;
         cout << "2. Book Match" << endl;
-        cout << "3. Exit" << endl;
+        cout << "3. Cancel Ticket"<<endl;
+        cout << "4. Exit" << endl;
         cout << "Choice: ";
         cin >> choice;
         switch (choice) {
@@ -29,7 +30,7 @@ int main() {
                 break;
             case 2:
                 cout << "Booking Match\n";
-                
+
                 found = false;
 
                 cout << "Enter Match ID: ";
@@ -52,14 +53,36 @@ int main() {
                 if (!found)
                     cout << "Invalid Match ID\n";
                 break;
-            case 3:
+        case 3:
+                cout<<"Cancel Ticket"<<endl;
+
+                int matchId, ticketId;
+                cout << "Enter Match ID: ";
+                cin >> matchId;
+                cout << "Enter Ticket ID: ";
+                cin >> ticketId;
+
+                if (matchId >= 1 && matchId <= matches.size())
+                {
+                    if (matches[matchId - 1].cancelTicket(ticketId))
+                        cout << "Ticket cancelled successfully\n";
+                    else
+                        cout << "Ticket not found\n";
+                }
+                else {
+                    cout << "Invalid Match ID\n";
+                }
+                cout<<"------------------------------------------------"<<endl;
+                break;
+
+            case 4:
                 cout << "Exiting...\n";
                 break;
             default:
                 cout << "Invalid choice. Please try again.\n";
         }
 
-    } while (choice != 3);
+    } while (choice != 4);
 
     cout << "Goodbye" << endl;
     return 0;

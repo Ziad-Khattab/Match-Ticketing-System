@@ -23,6 +23,8 @@ public:
     string getMatchCode();
     void showTickets();
     void showAvailableSeats();
+
+    bool cancelTicket(int ticketId);
 };
 
 #endif
