@@ -42,3 +42,16 @@ void Match::showAvailableSeats() {
     cout << match_id << " - " << matchCode
          << " | Available: " << (capacity - bookedCount) << endl;
 }
+
+bool Match::cancelTicket(int ticketId) {
+    vector<Ticket>::iterator it;
+
+    for (it = tickets.begin(); it != tickets.end(); ++it) {
+        if (it->getTicketId() == ticketId) {
+            tickets.erase(it);
+            bookedCount--;
+            return true;
+        }
+    }
+    return false;
+}
