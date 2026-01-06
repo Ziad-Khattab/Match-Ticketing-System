@@ -25,6 +25,7 @@ public:
     void showAvailableSeats();
 
     bool cancelTicket(int ticketId);
+	bool setCapacity(int newCapacity);
 };
 
 #endif

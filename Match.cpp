@@ -55,3 +55,10 @@ bool Match::cancelTicket(int ticketId) {
     }
     return false;
 }
+bool Match::setCapacity(int newCapacity) {
+    if (newCapacity < bookedCount) {
+        return false;
+    }
+    capacity = newCapacity;
+    return true;
+}
