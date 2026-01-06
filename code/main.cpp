@@ -52,8 +52,7 @@ void adminMenu(vector<Match>& matches) {
         cout << "1. Add Match\n";
         cout << "2. Delete Match\n";
         cout << "3. Set Match Capacity\n";
-        cout << "4. View Match Tickets\n";
-        cout << "5. Back\n";
+        cout << "4. Back\n";
         cout << "Choice: ";
         cin >> choice;
 
@@ -108,22 +107,7 @@ void adminMenu(vector<Match>& matches) {
                 if (!found) cout << "Invalid Match ID\n";
                 break;
             }
-            case 4: { // View Tickets
-                int id;
-                cout << "Enter Match ID to view tickets: ";
-                cin >> id;
-                bool found = false;
-                for (auto& m : matches) {
-                    if (m.getMatchId() == id) {
-                        m.showTickets(""); // show all tickets
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) cout << "Invalid Match ID\n";
-                break;
-            }
-            case 5:
+            case 4:
                 cout << "Returning to main menu...\n";
                 break;
             default:
