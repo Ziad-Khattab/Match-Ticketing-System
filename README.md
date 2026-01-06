@@ -1,52 +1,110 @@
 # Sports Match Ticketing System 🏟️🎟️
 
-> A robust, object-oriented C++ console application for managing sports fixtures and ticket sales.
+> A console-based C++ application that allows administrators to manage sports matches and fans to view and book tickets.
 
-## 📖 Overview
+The project follows **Agile methodology** and is developed incrementally through sprints, with clearly defined **SMART** requirements.
 
-This project is a Match Ticketing System designed to facilitate the scheduling of sports fixtures and the sale of tickets to fans. Developed using an Agile methodology, the system simulates a professional engineering workflow, focusing on object-oriented design, persistent storage, and strict adherence to functional requirements.
+## 📌 Project Overview
 
-- **Current Version:** Sprint 1 (MVP)
-- **Status:** Active Development
+The Sports Match Ticketing System is designed to simulate a basic ticket booking workflow using **Object-Oriented Programming** in C++.
 
----
+It supports two user roles:
+* **Admin:** Manages matches and monitors bookings.
+* **Fan:** Views matches and books tickets.
 
-## ✨ Features (MVP)
-
-### 👨‍💼 Administrator Mode
-* **Schedule Matches:** Create new fixtures by specifying Home Team, Away Team, Stadium, Date, Ticket Price, and Capacity.
-* **Input Handling:** Robust support for team/stadium names containing spaces (e.g., "Real Madrid", "Old Trafford").
-* **Validation:** Ensures prices and capacities are positive integers.
-
-### 👤 Fan Mode
-* **View Fixtures:** Browse a formatted list of all upcoming matches, including live updates on seat availability.
-* **Book Tickets:** Purchase tickets for specific matches.
-* **Inventory Management:** System automatically checks seat availability (Capacity - Booked) before confirming a purchase.
-
-### 💾 System
-* **Data Persistence:** All data is saved instantly to CSV files (`matches.csv` and `tickets.csv`).
-* **Reliability:** Data remains intact even if the application is closed or crashes.
+The system runs entirely in the console and uses **in-memory data structures** for storage.
 
 ---
 
-## 🛠️ Tech Stack
+## 👥 Stakeholders
 
-* **Language:** C++ (C++11 or higher recommended)
-* **Architecture:** Console Application (CLI) with Object-Oriented Design
-* **Storage:** CSV File I/O
-* **Libraries:** Standard Template Library (`<vector>`, `<string>`, `<fstream>`, `<iostream>`)
+### Admin
+* Add and delete matches
+* View bookings per match
+
+### Fan
+* View available matches
+* Book tickets
+* View personal booked tickets
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Functional Requirements (SMART)
 
-### Prerequisites
-* A C++ Compiler (GCC, Clang, or MSVC)
-* Git
+### 📅 Sprint 1
+* **FR-02: View Matches (Fan)**
+    * Display: Match ID, Match code, Available seats
+* **FR-03: Book Ticket (Fan)**
+    * Book one seat per request
+    * Increase booked count upon success
+* **FR-04: Prevent Overbooking**
+    * Block booking when `booked seats == capacity`
+* **FR-05: Generate Ticket**
+    * Generate a ticket with: Unique ticket ID, Associated match, Fan name
+* **NFR-03: Maintainability**
+    * Multi-file OOP structure
+    * Separate headers and source files
 
-### Installation
+### 📅 Sprint 2
+* **FR-01: Add Match (Admin)**
+    * Add a new match with: Unique match ID, Match code, Capacity
+* **FR-06: View Booked Tickets (Fan)**
+    * Display all tickets booked by a specific fan
+* **FR-07: View Match Bookings (Admin)**
+    * Display all tickets for a selected match (Show: Ticket ID, Ticket owner)
+* **FR-08: Delete Match (Admin)**
+    * Delete a match and all associated tickets
+* **NFR-01: Usability**
+    * Console-based menu, Clear options, Single-word inputs
+* **NFR-02: Reliability**
+    * Handle invalid input gracefully
+    * No crashes or runtime errors
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Ziad-Khattab/Match-Ticketing-System.git](https://github.com/Ziad-Khattab/Match-Ticketing-System.git)
-   cd match-ticketing-system
+---
+
+## 🧠 Assumptions & Constraints
+
+* **Input:** Contains no spaces (single-word only).
+* **Platform:** Console-based application only.
+* **Storage:** No database integration; Data stored **in-memory**.
+* **Persistence:** CSV or file storage is planned for future sprints.
+
+---
+
+## ✅ Acceptance Criteria
+
+- [x] Admin can add and delete matches
+- [x] Fan can view and book tickets
+- [x] Overbooking is prevented
+- [x] Tickets are correctly linked to matches
+- [x] System handles invalid input safely
+
+---
+
+## 🛠️ Technologies Used
+
+* **Language:** C++
+* **Paradigm:** Object-Oriented Programming (OOP)
+* **Interface:** Command Line Interface (CLI)
+
+---
+
+## 🚀 Future Enhancements
+
+- [ ] File persistence (CSV or database)
+- [ ] Login/authentication system
+- [ ] Seat selection
+- [ ] Match scheduling with date & time
+- [ ] GUI version
+
+---
+
+## 📂 Suggested Project Structure
+
+```text
+/SportsMatchTicketingSystem
+│
+├── Match.h / Match.cpp
+├── Ticket.h / Ticket.cpp
+├── main.cpp
+└── README.md
