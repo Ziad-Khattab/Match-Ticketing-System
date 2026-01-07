@@ -1,110 +1,86 @@
-# Sports Match Ticketing System 🏟️🎟️
+# Sports Match Ticketing System (GUI Edition)🏟️🎟️
 
-> A console-based C++ application that allows administrators to manage sports matches and fans to view and book tickets.
-
-The project follows **Agile methodology** and is developed incrementally through sprints, with clearly defined **SMART** requirements.
+> A modern, desktop-based C++ application for managing sports matches and booking tickets, built with Qt 6 and CMake.
 
 ## 📌 Project Overview
 
-The Sports Match Ticketing System is designed to simulate a basic ticket booking workflow using **Object-Oriented Programming** in C++.
+This project simulates a real-world ticketing system using **Object-Oriented Programming (OOP)** principles. Originally a console application, it has been upgraded to a full **Graphical User Interface (GUI)** using the Qt Framework.
 
-It supports two user roles:
-* **Admin:** Manages matches and monitors bookings.
-* **Fan:** Views matches and books tickets.
-
-The system runs entirely in the console and uses **in-memory data structures** for storage.
+It features a secure **Admin Panel** with login protection and a **Fan Zone** for users to browse and book matches dynamically.
 
 ---
 
-## 👥 Stakeholders
+## ✨ Key Features
 
-### Admin
-* Add and delete matches
-* View bookings per match
+### 👤 Fan Zone (User)
+* **View Matches:** Real-time table displaying Match IDs, Teams (Codes), Capacity, and Booked Seats.
+* **Book Tickets:** Simple interface to book a seat by entering a fan name.
+* **Live Updates:** The table updates immediately after a booking to prevent overbooking.
+* **My Tickets:** View all tickets booked under a specific name.
+* **Validation:** Prevents booking if the match is full or input is invalid.
 
-### Fan
-* View available matches
-* Book tickets
-* View personal booked tickets
-
----
-
-## ⚙️ Functional Requirements (SMART)
-
-### 📅 Sprint 1
-* **FR-02: View Matches (Fan)**
-    * Display: Match ID, Match code, Available seats
-* **FR-03: Book Ticket (Fan)**
-    * Book one seat per request
-    * Increase booked count upon success
-* **FR-04: Prevent Overbooking**
-    * Block booking when `booked seats == capacity`
-* **FR-05: Generate Ticket**
-    * Generate a ticket with: Unique ticket ID, Associated match, Fan name
-* **NFR-03: Maintainability**
-    * Multi-file OOP structure
-    * Separate headers and source files
-
-### 📅 Sprint 2
-* **FR-01: Add Match (Admin)**
-    * Add a new match with: Unique match ID, Match code, Capacity
-* **FR-06: View Booked Tickets (Fan)**
-    * Display all tickets booked by a specific fan
-* **FR-07: View Match Bookings (Admin)**
-    * Display all tickets for a selected match (Show: Ticket ID, Ticket owner)
-* **FR-08: Delete Match (Admin)**
-    * Delete a match and all associated tickets
-* **NFR-01: Usability**
-    * Console-based menu, Clear options, Single-word inputs
-* **NFR-02: Reliability**
-    * Handle invalid input gracefully
-    * No crashes or runtime errors
+### 🛡️ Admin Panel (Secure)
+* **Authentication:** Secured tab requiring a login (Username/Password) to access.
+* **Add Match:** Create new matches with custom ID, Name, and Capacity.
+* **Delete Match:** Remove matches (and their tickets) from the system.
+* **System Monitoring:** View the status of all matches in a read-only list.
 
 ---
 
-## 🧠 Assumptions & Constraints
+## 🛠️ Tech Stack
 
-* **Input:** Contains no spaces (single-word only).
-* **Platform:** Console-based application only.
-* **Storage:** No database integration; Data stored **in-memory**.
-* **Persistence:** CSV or file storage is planned for future sprints.
-
----
-
-## ✅ Acceptance Criteria
-
-- [x] Admin can add and delete matches
-- [x] Fan can view and book tickets
-- [x] Overbooking is prevented
-- [x] Tickets are correctly linked to matches
-- [x] System handles invalid input safely
+* **Language:** C++17
+* **GUI Framework:** Qt 6 (Widgets Module)
+* **Build System:** CMake (3.16+)
+* **Platform:** Linux / WSL (Ubuntu 24.04) / Windows
 
 ---
 
-## 🛠️ Technologies Used
+## 🚀 Installation & Build Guide
 
-* **Language:** C++
-* **Paradigm:** Object-Oriented Programming (OOP)
-* **Interface:** Command Line Interface (CLI)
+### Prerequisites (Ubuntu / WSL)
+Ensure you have the compiler, CMake, and Qt 6 libraries installed.
+
+Run the following in your terminal:
+```bash
+sudo apt update
+sudo apt install build-essential cmake qt6-base-dev qt6-wayland libxkbcommon-dev
+git clone [https://github.com/YourUsername/SportsTicketingSystem.git](https://github.com/YourUsername/SportsTicketingSystem.git)
+cd SportsTicketingSystem
+mkdir build
+cd build
+cmake ..
+make
+./SportsTicketing
+```
+## 📖 How to Use
+
+### 1. Booking a Ticket
+1. Launch the app. You will land in the **Fan Zone**.
+2. Click on a match in the table to select it.
+3. Enter your name in the text box.
+4. Click **"Book Selected Match"**.
+
+### 2. Accessing Admin Panel
+1. Click the **"Admin Panel"** tab.
+2. A security dialog will pop up.
+3. Enter Credentials:
+   * **Username:** `admin`
+   * **Password:** `1234`
+4. Upon success, you can add or delete matches.
 
 ---
 
-## 🚀 Future Enhancements
-
-- [ ] File persistence (CSV or database)
-- [ ] Login/authentication system
-- [ ] Seat selection
-- [ ] Match scheduling with date & time
-- [ ] GUI version
-
----
-
-## 📂 Suggested Project Structure
+## 📂 Project Structure
 
 ```text
-/SportsMatchTicketingSystem
+/SportsTicketingSystem
 │
-├── Match.h / Match.cpp
-├── Ticket.h / Ticket.cpp
-├── main.cpp
-└── README.md
+├── CMakeLists.txt       # Build configuration
+├── main.cpp             # Entry point
+├── MainWindow.h         # Main GUI logic (Header)
+├── MainWindow.cpp       # Main GUI logic (Source)
+├── Admin.h / .cpp       # Admin class logic
+├── Fan.h / .cpp         # Fan class logic
+├── Match.h / .cpp       # Match data structure
+└── README.md            # Documentation
