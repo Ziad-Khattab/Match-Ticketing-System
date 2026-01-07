@@ -28,10 +28,10 @@ int main() {
         switch (userType)
         {
         case 1:
-            fanMenu(matches); // بعد ما يخلص submenu يرجع هنا
+            fanMenu(matches); 
             break;
         case 2:
-            adminMenu(matches); // بعد ما يخلص submenu يرجع هنا
+            adminMenu(matches); 
             break;
         case 3:
             cout << "Exiting program...\n";
@@ -150,7 +150,6 @@ void fanMenu(vector<Match>& matches) {
                 {
                     cout << "Invalid Match ID\n";
                 }
-                cout<<"------------------------------------------------"<<endl;
                 break;
 
             case 4:
