@@ -1,0 +1,5 @@
+/home/khattab/Match-Ticketing-System/Sprint3/build/CMakeFiles/SportsTicketing.dir
+/home/khattab/Match-Ticketing-System/Sprint3/build/CMakeFiles/edit_cache.dir
+/home/khattab/Match-Ticketing-System/Sprint3/build/CMakeFiles/rebuild_cache.dir
+/home/khattab/Match-Ticketing-System/Sprint3/build/CMakeFiles/SportsTicketing_autogen_timestamp_deps.dir
+/home/khattab/Match-Ticketing-System/Sprint3/build/CMakeFiles/SportsTicketing_autogen.dir
