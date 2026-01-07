@@ -19,22 +19,27 @@ bool Match::bookSeat(string fanName) {
     if (isFull())
         return false;
 
-    int ticketId = tickets.size() + 1;
-    Ticket t(ticketId, match_id, fanName);
+    Ticket t(nextTicketId++, match_id, fanName); // unique ID
     tickets.push_back(t);
     bookedCount++;
     return true;
 }
 
-void Match::showTickets() {
-    if (tickets.empty()) {
-        cout << "No tickets booked for this match.\n";
-        return;
-    }
+void Match::showTickets(string name) {
+    bool found = false;
 
     for (int i = 0; i < tickets.size(); i++) {
-        cout << "Ticket ID: " << tickets[i].getTicketId()
-             << " | Owner: " << tickets[i].getOwnerName() << endl;
+        if (name.empty() || tickets[i].getOwnerName() == name) {
+            cout << "Match ID: " << match_id
+                 << " | Match Code: " << matchCode
+                 << " | Ticket ID: " << tickets[i].getTicketId()
+                 << " | Owner: " << tickets[i].getOwnerName()
+                 << endl;
+            found = true;
+        }
+    }
+    if (!found) {
+        cout << "No tickets found.\n";
     }
 }
 
@@ -55,6 +60,7 @@ bool Match::cancelTicket(int ticketId) {
     }
     return false;
 }
+
 bool Match::setCapacity(int newCapacity) {
     if (newCapacity < bookedCount) {
         return false;
